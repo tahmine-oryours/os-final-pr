@@ -9,6 +9,12 @@ class elevator:
         self.request.append(request)
 
     def move(self, dest):
+        while(self.cur_floor != dest):
+            self.cur_floor += 1 if self.cur_floor < dest else -1
+            self.pickup()
+            sleep(0.5)
+
+    def pickup(self):
         pass
 
 
