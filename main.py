@@ -13,13 +13,18 @@ def main():
     dest = re.split(r'\s+', dest)
 
     request = []
+    # 'T': true -> waiting for elevator
+    # 'F': false -> not waiting
+    # 'P' pending -> on elevator
     for i in range(MAX_FLOOR):
-        request.append([False, -1])
+        request.append(['F', -1])
     for i in range(len(req)):
         r = int(req[i]) - 1
-        request[r] = [True, dest[i]]
+        d = int(dest[i]) - 1
+        request[r] = ['T', d]
 
     elevator.set_request(request)
+
 
 
 if __name__ == "__main__":
