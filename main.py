@@ -1,11 +1,10 @@
 import re
-from elevator import elevator
+from elevator import myElevator
 
-elevator = elevator()
+elevator = myElevator()
 MAX_FLOOR = 15
 
 def main():
-    global elevator
 
     req = input().strip()
     req = re.split(r'\s+', req)

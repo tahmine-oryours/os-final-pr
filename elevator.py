@@ -1,6 +1,6 @@
 from time import sleep
 
-class elevator:
+class myElevator:
     def __init__(self):
         self.cur_floor = 0
         self.request = []
