@@ -6,10 +6,13 @@ MAX_FLOOR = 15
 
 def main():
 
-    req = input().strip()
+    cf = input("enter current floor of elevator:\n").strip()
+    elevator.set_current_floor(int(cf))
+
+    req = input("enter requests:\n").strip()
     req = re.split(r'\s+', req)
     
-    dest = input("").strip()
+    dest = input("enter destinations:\n").strip()
     dest = re.split(r'\s+', dest)
 
     request = []
@@ -24,7 +27,7 @@ def main():
         request[r] = ['T', d]
 
     elevator.set_request(request)
-
+    elevator.activate()
 
 
 if __name__ == "__main__":
