@@ -15,9 +15,16 @@ def main():
     for i in range(MAX_FLOOR):
         elevator.request.append(['F', -1])
 
+    req = input("enter requests:\n").strip()
+    dest = input("enter destinations:\n").strip()
+    elevator.set_request(int(req)-1, int(dest)-1)
+    my = threading.Thread(target=elevator.activate, daemon =True)
+    my.start()
+
     while True:
-        req = input("enter requests:\n").strip()
-        dest = input("enter destinations:\n").strip()
+        req = input("\n").strip()
+        if req:
+            dest = input("\nenter destinations:\n").strip()
         elevator.set_request(int(req)-1, int(dest)-1)
         if not my.is_alive():
             my = threading.Thread(target=elevator.activate, daemon =True)
